@@ -2,6 +2,8 @@
 
 class Chip8 {
 public:
+	void LoadROM(char const* filename);
+
     uint8_t registers[16]{};
     uint8_t memory[4096]{};
     uint16_t index{};

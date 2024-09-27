@@ -3,6 +3,11 @@
 
 const unsigned int START_ADDRESS = 0x200;
 
+Chip8::Chip8() {
+    // initialize pc
+    pc = START_ADDRESS;
+}
+
 void Chip8::LoadROM(char const* filename) {
     // opens file in binary mode and sets file pointer to end
     std::ifstream file(filename, std::ios::binary | std::ios::ate);

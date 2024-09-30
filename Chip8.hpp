@@ -1,6 +1,9 @@
 #include <cstdint>
 #include <random>
 
+const unsigned int VIDEO_HEIGHT = 32;
+const unsigned int VIDEO_WIDTH = 64;
+
 class Chip8 {
 public:
     Chip8();
@@ -66,4 +69,6 @@ private:
     void OP_Bnnn();
     // RND Vx, byte
     void OP_Cxkk();
+    // DRW Vx, Vy, nibble
+    void OP_Dxyn();
 };

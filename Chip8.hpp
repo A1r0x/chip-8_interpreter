@@ -52,4 +52,10 @@ private:
     void OP_8xy4();
     // SUB Vx, Vy
     void OP_8xy5();
+    // SHR Vx
+    void OP_8xy6();
+    // SUBN Vx, Vy
+    void OP_8xy7();
+    // SHL Vx {, Vy}
+    void OP_8xyE();
 };

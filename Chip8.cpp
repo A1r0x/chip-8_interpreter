@@ -167,3 +167,25 @@ void Chip8::OP_8xy3() {
 
     registers[Vx] ^= registers[Vy];
 }
+
+// Set Vx = Vx + Vy, set VF = carry
+void Chip8::OP_8xy4() {
+    uint8_t Vx = (opcode & 0x0F00u) >> 8u;
+    uint8_t Vy = (opcode & 0x00F0u) >> 4u;
+
+    uint16_t sum = registers[Vx] + registers[Vy];
+
+    registers[0xF] = sum > 255u;
+
+    registers[Vx] = sum & 0xFFu;
+}
+
+// Set Vx = Vx - Vy, set VF = NOT BORROW
+void Chip8::OP_8xy5() {
+    uint8_t Vx = (opcode & 0x0F00u) >> 8u;
+    uint8_t Vy = (opcode & 0x00F0u) >> 4u;
+
+    registers[0xF] = registers[Vx] > registers[Vy];
+
+    registers[Vx] -= registers[Vy];
+}

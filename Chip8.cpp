@@ -253,7 +253,6 @@ void Chip8::OP_Cxkk() {
 }
 
 // Display n-byte sprite starting at memory location I at (Vx, Vy), set VF = collision
-
 void Chip8::OP_Dxyn() {
     uint8_t Vx = (opcode & 0x0F00u) >> 8u;
     uint8_t Vy = (opcode & 0x00F0u) >> 4u;
@@ -282,4 +281,33 @@ void Chip8::OP_Dxyn() {
             }
         }
     }
+}
+
+// Skip next instruction if key with the value of Vx is pressed
+void Chip8::OP_Ex9E() {
+    uint8_t Vx = (opcode & 0x0F00u) >> 8u;
+    
+    uint8_t key = registers[Vx];
+
+    if (keypad[key]) {
+        pc += 2;
+    }
+}
+
+// Skip next instruction if key with the value of Vx is not pressed
+void Chip8::OP_ExA1() {
+    uint8_t Vx = (opcode & 0x0F00u) >> 8u;
+    
+    uint8_t key = registers[Vx];
+
+    if (!keypad[key]) {
+        pc += 2;
+    }
+}
+
+// Set Vx = delay timer value
+void Chip8::OP_Fx07() {
+    uint8_t Vx = (opcode & 0x0F00u) >> 8u;
+
+    registers[Vx] = delayTimer;
 }

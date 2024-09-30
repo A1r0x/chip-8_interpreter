@@ -71,4 +71,10 @@ private:
     void OP_Cxkk();
     // DRW Vx, Vy, nibble
     void OP_Dxyn();
+    // SKP Vx
+    void OP_Ex9E();
+    // SKNP Vx
+    void OP_ExA1();
+    // LD Vx, DT
+    void OP_Fx07();
 };

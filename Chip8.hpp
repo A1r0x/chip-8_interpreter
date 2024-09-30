@@ -77,4 +77,6 @@ private:
     void OP_ExA1();
     // LD Vx, DT
     void OP_Fx07();
+    // LD Vx, K
+    void OP_Fx0A();
 };

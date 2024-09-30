@@ -32,4 +32,6 @@ private:
     void OP_2nnn();
     // SE Vx, byte
     void OP_3xkk();
+    // SNE Vx, byte
+    void OP_4xkk();
 };

@@ -99,3 +99,13 @@ void Chip8::OP_3xkk() {
         pc += 2;
     }
 }
+
+// Skip next instruction if Vx != kk
+void Chip8::OP_4xkk() {
+    uint8_t Vx = (opcode & 0x00F0u) >> 8u;
+    uint8_t kk = opcode & 0x00FFu;
+
+    if (registers[Vx] != kk) {
+        pc += 2;
+    }
+}

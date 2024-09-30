@@ -40,4 +40,6 @@ private:
     void OP_6xkk();
     // ADD Vx, byte
     void OP_7xkk();
+    // Set Vx = Vy
+    void OP_8xy0();
 };

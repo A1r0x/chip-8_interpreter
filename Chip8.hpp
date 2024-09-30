@@ -58,4 +58,12 @@ private:
     void OP_8xy7();
     // SHL Vx {, Vy}
     void OP_8xyE();
+    // SNE Vx, Vy
+    void OP_9xy0();
+    // LD I, addr
+    void OP_Annn();
+    // JP V0, addr
+    void OP_Bnnn();
+    // RND Vx, byte
+    void OP_Cxkk();
 };

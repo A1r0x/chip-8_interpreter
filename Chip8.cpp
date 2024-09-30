@@ -219,3 +219,35 @@ void Chip8::OP_8xyE() {
 
     registers[Vx] <<= 1;
 }
+
+// Skip next instruction if Vx != Vy
+void Chip8::OP_9xy0() {
+    uint8_t Vx = (opcode & 0x0F00u) >> 8u;
+    uint8_t Vy = (opcode & 0x00F0u) >> 4u;
+    
+    if (registers[Vx] != registers[Vy]) {
+        pc += 2;
+    }
+}
+
+// Set I = nnn
+void Chip8::OP_Annn() {
+    uint8_t address = opcode & 0x0FFFu;
+
+    index = address;
+}
+
+// Jump to location nnn + V0
+void Chip8::OP_Bnnn() {
+    uint8_t address = opcode & 0x0FFFu;
+
+    pc = registers[0] + address;
+}
+
+// Vx = random byte AND kk
+void Chip8::OP_Cxkk() {
+    uint8_t Vx = (opcode & 0x0F00u) >> 8u;
+    uint8_t kk = opcode & 0x00FFu;
+
+    registers[Vx] = randByte(randGen) & kk;
+}

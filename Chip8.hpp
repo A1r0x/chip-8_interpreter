@@ -42,4 +42,10 @@ private:
     void OP_7xkk();
     // Set Vx = Vy
     void OP_8xy0();
+    // OR Vx, Vy
+    void OP_8xy1();
+    // AND Vx, Vy
+    void OP_8xy2();
+    // XOR Vx, Vy
+    void OP_8xy3();
 };

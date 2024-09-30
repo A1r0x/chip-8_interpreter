@@ -143,3 +143,27 @@ void Chip8::OP_8xy0() {
 
     registers[Vx] = registers[Vy];
 }
+
+// Set Vx = Vx OR Vy
+void Chip8::OP_8xy1() {
+    uint8_t Vx = (opcode & 0x0F00u) >> 8u;
+    uint8_t Vy = (opcode & 0x00F0u) >> 4u;
+
+    registers[Vx] |= registers[Vy];
+}
+
+// Set Vx = Vx AND Vy
+void Chip8::OP_8xy2() {
+    uint8_t Vx = (opcode & 0x0F00u) >> 8u;
+    uint8_t Vy = (opcode & 0x00F0u) >> 4u;
+
+    registers[Vx] &= registers[Vy];
+}
+
+// Set Vx = Vx XOR Vy
+void Chip8::OP_8xy3() {
+    uint8_t Vx = (opcode & 0x0F00u) >> 8u;
+    uint8_t Vy = (opcode & 0x00F0u) >> 4u;
+
+    registers[Vx] ^= registers[Vy];
+}

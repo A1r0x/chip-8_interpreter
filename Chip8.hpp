@@ -30,4 +30,6 @@ private:
     void OP_1nnn();
     // CALL addr
     void OP_2nnn();
+    // SE Vx, byte
+    void OP_3xkk();
 };

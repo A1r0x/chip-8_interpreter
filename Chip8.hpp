@@ -79,4 +79,8 @@ private:
     void OP_Fx07();
     // LD Vx, K
     void OP_Fx0A();
+    // LD DT, Vx
+    void OP_Fx15();
+    // LD ST, Vx
+    void OP_Fx18();
 };

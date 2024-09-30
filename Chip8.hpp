@@ -26,4 +26,6 @@ private:
     void OP_00E0();
     // RET
     void OP_00EE();
+    // JP addr
+    void OP_1nnn();
 };

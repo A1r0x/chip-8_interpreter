@@ -74,3 +74,9 @@ void Chip8::OP_00EE() {
     --sp;
     pc = stack[sp];
 }
+
+// Jump to location nnn by using bitmask to extract address from last 12 bits of opcode
+void Chip8::OP_1nnn() {
+    uint16_t address = opcode & 0x0FFFu;
+    pc = address;
+}

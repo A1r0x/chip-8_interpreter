@@ -64,6 +64,13 @@ void Chip8::LoadROM(char const* filename) {
     }
 }
 
+// clear the display
 void Chip8::OP_00E0() {
     memset(video, 0, sizeof(video));
+}
+
+// return from a subroutine
+void Chip8::OP_00EE() {
+    --sp;
+    pc = stack[sp];
 }

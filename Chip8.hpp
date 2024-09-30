@@ -22,6 +22,8 @@ public:
     std::uniform_int_distribution<uint8_t> randByte;
 
 private:
+    // CLS
     void OP_00E0();
-
+    // RET
+    void OP_00EE();
 };

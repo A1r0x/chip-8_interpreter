@@ -28,4 +28,6 @@ private:
     void OP_00EE();
     // JP addr
     void OP_1nnn();
+    // CALL addr
+    void OP_2nnn();
 };

@@ -38,4 +38,6 @@ private:
     void OP_5xy0();
     // LD Vx, byte
     void OP_6xkk();
+    // ADD Vx, byte
+    void OP_7xkk();
 };

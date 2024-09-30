@@ -127,3 +127,12 @@ void Chip8::OP_6xkk() {
 
     registers[Vx] = kk;
 }
+
+// Set Vx = Vx + kk
+void Chip8::OP_7xkk() {
+    uint8_t Vx = (opcode & 0x0F00u) >> 8u;
+    uint8_t kk = opcode & 0x00FFu;
+
+    registers[Vx] += kk;
+}
+

@@ -36,4 +36,6 @@ private:
     void OP_4xkk();
     // SE Vx, Vy
     void OP_5xy0();
+    // LD Vx, byte
+    void OP_6xkk();
 };

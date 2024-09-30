@@ -119,3 +119,11 @@ void Chip8::OP_5xy0() {
         pc += 2;
     }
 }
+
+// Set Vx = kk
+void Chip8::OP_6xkk() {
+    uint8_t Vx = (opcode & 0x0F00u) >> 8u;
+    uint8_t kk = opcode & 0x00FFu;
+
+    registers[Vx] = kk;
+}

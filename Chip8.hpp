@@ -10,6 +10,9 @@ public:
 	void LoadROM(char const* filename);
     void Cycle();
 
+    uint8_t keypad[16]{};
+    uint32_t video[64 * 32]{};
+
 private:
     void Table0();
 	void Table8();
@@ -96,8 +99,6 @@ private:
     uint8_t sp{};
     uint8_t delayTimer{};
     uint8_t soundTimer{};
-    uint8_t keypad[16]{};
-    uint32_t video[64 * 32]{};
     uint16_t opcode;
 
     std::default_random_engine randGen;

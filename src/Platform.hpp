@@ -1,6 +1,5 @@
 #include <cstdint>
-#include <SDL.h>
-#include <SDL_render.h>
+#include <SDL2/SDL.h>
 
 class Platform {
 public:

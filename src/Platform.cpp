@@ -1,7 +1,6 @@
 #include "Platform.hpp"
 #include <cstdint>
-#include <SDL.h>
-#include <SDL_render.h>
+#include <SDL2/SDL.h>
 
 Platform::Platform(char const* title, int windowWidth, int windowHeight, int textureWidth, int textureHeight) {
     // Initializes SDL library with video subsystem to enable graphics

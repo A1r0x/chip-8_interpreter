@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <SDL.h>
 #include <SDL_render.h>
+#include <SDL_video.h>
 
 Platform::Platform(char const* title, int windowWidth, int windowHeight, int textureWidth, int textureHeight) {
     // Initializes SDL library with video subsystem to enable graphics
@@ -19,4 +20,19 @@ Platform::~Platform() {
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     SDL_Quit();
+}
+
+void Platform::Update(void const* buffer, int pitch) {
+    // Updates the texture with new pixel data. Buffer contains pixel data, pitch is number of bytes per row of pixels in memory
+    SDL_UpdateTexture(texture, nullptr, buffer, pitch);
+    // Clears the current rendering target
+    SDL_RenderClear(renderer);
+    // Copies the updated texture to the current rendering target
+    SDL_RenderCopy(renderer, texture, nullptr, nullptr);
+    // Presents the current rendering target to the screen
+    SDL_RenderPresent(renderer);
+}
+
+bool Platform::ProcessInput(uint8_t* keys) {
+    
 }

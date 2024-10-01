@@ -9,22 +9,15 @@ public:
     Chip8();
 	void LoadROM(char const* filename);
 
-    uint8_t registers[16]{};
-    uint8_t memory[4096]{};
-    uint16_t index{};
-    uint16_t pc{};
-    uint16_t stack[16]{};
-    uint8_t sp{};
-    uint8_t delayTimer{};
-    uint8_t soundTimer{};
-    uint8_t keypad[16]{};
-    uint32_t video[64 * 32]{};
-    uint16_t opcode;
-
-    std::default_random_engine randGen;
-    std::uniform_int_distribution<uint8_t> randByte;
-
 private:
+    void Table0();
+	void Table8();
+	void TableE();
+	void TableF();
+
+    // Do nothing
+	void OP_NULL();
+
     // CLS
     void OP_00E0();
     // RET
@@ -93,4 +86,26 @@ private:
     void OP_Fx55();
     // LD Vx, [I]
     void OP_Fx65();
+
+    uint8_t registers[16]{};
+    uint8_t memory[4096]{};
+    uint16_t index{};
+    uint16_t pc{};
+    uint16_t stack[16]{};
+    uint8_t sp{};
+    uint8_t delayTimer{};
+    uint8_t soundTimer{};
+    uint8_t keypad[16]{};
+    uint32_t video[64 * 32]{};
+    uint16_t opcode;
+
+    std::default_random_engine randGen;
+    std::uniform_int_distribution<uint8_t> randByte;
+
+    typedef void (Chip8::*Chip8Func)();
+	Chip8Func table[0xF + 1];
+	Chip8Func table0[0xE + 1];
+	Chip8Func table8[0xE + 1];
+	Chip8Func tableE[0xE + 1];
+	Chip8Func tableF[0x65 + 1];
 };
